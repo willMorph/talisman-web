@@ -10,7 +10,7 @@
     "@apollo/client": "^3.3.21",
     "@craco/craco": "^6.1.2",
     "@polkadot/api": "^5.4.1",
-    "@polkadot/extension-dapp": "^0.38.4",
+    "@talismn/connect": "file:../connect",
     "@polkadot/keyring": "^7.0.1",
     "@polkadot/react-identicon": "^0.80.1",
     "@talismn/api-react-hooks": "~0",
@@ -48,7 +48,7 @@
   "scripts": {
     "prepare": "husky install",
     "pre-commit": "lint-staged",
-    "start": "CI= craco start",
+    "start": "CI= HTTPS=true craco start",
     "build": "CI= GENERATE_SOURCEMAP=false craco build",
     "test": "craco test",
     "eject": "craco eject"
