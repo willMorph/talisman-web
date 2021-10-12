@@ -5,6 +5,7 @@ import type { ISubmittableResult } from '@polkadot/types/types'
 import { addTokensToBalances, groupBalancesByAddress, useBalances, useChain } from '@talismn/api-react-hooks'
 import { Deferred, addBigNumbers, planckToTokens, tokensToPlanck, useFuncMemo } from '@talismn/util'
 import BigNumber from 'bignumber.js'
+import * as Comlink from 'comlink'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 //
@@ -265,9 +266,30 @@ export function useCrowdloanContribute(
 // api is either null or ApiPromise, the promise variation of the polkadotjs api
 // apiPromise is a Promise<ApiPromise> which can be `await`ed to wait until the ApiPromise has been initialized
 function useApi(rpcs?: string[]): [ApiPromise | null, Promise<ApiPromise>] {
+  const [ApiPromiseProxy] = useState<
+    Comlink.Remote<
+      ApiPromise & {
+        initInWorker: (
+          endpoint?: string | string[] | undefined,
+          autoConnectMs?: number | false | undefined,
+          headers?: Record<string, string> | undefined
+        ) => Comlink.Remote<ApiPromise>
+      }
+    >
+  >(() => Comlink.wrap(new Worker('@workers/polkadot-api.ts', { type: 'module' })))
+  // const [ApiPromiseProxy, setApiPromiseProxy] = useState<any|null>(null)
   const [apiPromise, setApiPromise] = useState<Promise<ApiPromise> | null>(null)
   const [api, setApi] = useState<ApiPromise | null>(null)
   const [apiDeferred, setApiDeferred] = useState(Deferred<ApiPromise>())
+
+  // useEffect(() => {
+  //   if (!Array.isArray(rpcs) || rpcs.length < 1) return
+  //   ;(async () => {
+  //     // console.log({ blarg: await ApiPromiseProxy.initInWorker(rpcs) })
+  //     // console.log({ ApiPromiseProxy })
+  //     console.log({ rpcs, instance: await ApiPromiseProxy.initInWorker(rpcs) })
+  //   })()
+  // }, [rpcs, ApiPromiseProxy])
 
   useEffect(() => {
     if (!Array.isArray(rpcs) || rpcs.length < 1) return

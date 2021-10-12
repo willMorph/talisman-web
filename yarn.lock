@@ -2666,6 +2666,7 @@ __metadata:
     "@types/webpack-env": ^1.16.2
     babel-plugin-styled-components: ^1.13.2
     bignumber.js: ^9.0.1
+    comlink: ^4.3.1
     craco-alias: ^3.0.1
     framer-motion: ^4.1.17
     graphql: ^15.5.1
@@ -2686,6 +2687,7 @@ __metadata:
     styled-components: ^5.3.0
     typescript: ^4.1.2
     web-vitals: ^1.0.1
+    worker-plugin: ^5.0.1
   languageName: unknown
   linkType: soft
 
@@ -5299,6 +5301,13 @@ __metadata:
   dependencies:
     delayed-stream: ~1.0.0
   checksum: 49fa4aeb4916567e33ea81d088f6584749fc90c7abec76fd516bf1c5aa5c79f3584b5ba3de6b86d26ddd64bae5329c4c7479343250cfe71c75bb366eae53bb7c
+  languageName: node
+  linkType: hard
+
+"comlink@npm:^4.3.1":
+  version: 4.3.1
+  resolution: "comlink@npm:4.3.1"
+  checksum: 557360a6558708c55aff74a25f834bfb9bfca8a42444682c4d5aead57681534a0206202be2a2760b4de124c3ba6d485b08978b6d5469cb3d26bf1438ee28a4f1
   languageName: node
   linkType: hard
 
@@ -16813,6 +16822,17 @@ typescript@^4.1.2:
   dependencies:
     errno: ~0.1.7
   checksum: eab917530e1feddf157ec749e9c91b73a886142daa7fdf3490bccbf7b548b2576c43ab8d0a98e72ac755cbc101ca8647a7b1ff2485fddb9e8f53c40c77f5a719
+  languageName: node
+  linkType: hard
+
+"worker-plugin@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "worker-plugin@npm:5.0.1"
+  dependencies:
+    loader-utils: ^1.1.0
+  peerDependencies:
+    webpack: ">= 4"
+  checksum: 5ab10804b01eff82895e9ee516af2a8e24db794f8ea879cabf6cffa81e52ba6b5f5fdde00543cad69e6fd2103d286895fc95bc8179e1202ddfa0cf5c93f9b263
   languageName: node
   linkType: hard
 

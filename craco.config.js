@@ -92,6 +92,15 @@ const TalismanLibsFastRefreshPlugin = {
   },
 }
 
+const WorkerPlugin = {
+  plugin: {
+    overrideWebpackConfig: ({ webpackConfig }) => {
+      webpackConfig.plugins.push(new (require('worker-plugin'))())
+      return webpackConfig
+    },
+  },
+}
+
 module.exports = {
-  plugins: [StyledComponentsPlugin, ImportAliasesPlugin, TalismanLibsFastRefreshPlugin],
+  plugins: [StyledComponentsPlugin, ImportAliasesPlugin, TalismanLibsFastRefreshPlugin, WorkerPlugin],
 }
