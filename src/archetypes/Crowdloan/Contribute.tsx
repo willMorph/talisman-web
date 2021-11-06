@@ -36,6 +36,9 @@ export default function Contribute({ className, id }: ContributeProps) {
 
   return contributeState.match({
     Initializing: () => <Loading />,
+
+    IpBanned: () => 'Sorry, this crowdloan is not accepting contributions from IP addresses within your region.',
+
     Ready: props => (
       <ContributeTo
         {...{
@@ -185,7 +188,8 @@ const ContributeTo = styled(
                   disabled={submissionRequested}
                 />
                 <div className="info">
-                  All contributions via the Talisman dashboard are made to Acala's liquid crowdloan (lcDOT) offer and are subject to the rewards and vesting schedule described {' '}
+                  All contributions via the Talisman dashboard are made to Acala's liquid crowdloan (lcDOT) offer and
+                  are subject to the rewards and vesting schedule described{' '}
                   <a
                     href="https://medium.com/acalanetwork/acala-liquid-crowdloan-dot-lcdot-launch-on-polkadot-f28d8f561157#4080"
                     target="_blank"
