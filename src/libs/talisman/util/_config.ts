@@ -5,6 +5,7 @@ export const relayChainsChaindata: RelayChaindata[] = [
     name: 'Polkadot',
     subscanUrl: 'https://polkadot.subscan.io',
     subqueryCrowdloansUrl: 'https://api.subquery.network/sq/bianyunjian/polkadot-crowdloans',
+    // subqueryCrowdloansUrl: 'https://api.subquery.network/sq/TalismanSociety/polkadot-crowdloans__VGFsa',
   },
   {
     id: 2,
@@ -146,7 +147,7 @@ export const parachainDetails: ParachainDetails[] = [
       Telegram: 'https://t.me/clover_en/',
       Medium: 'https://projectclover.medium.com/',
       Github: 'https://github.com/clover-network',
-      Discord: 'https://discord.com/invite/7EFqBwZ3aw'
+      Discord: 'https://discord.com/invite/7EFqBwZ3aw',
     },
   },
   {
